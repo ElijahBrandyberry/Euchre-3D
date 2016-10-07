@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Euchre 3D</title>
+  <link rel="stylesheet" type="text/css" href="euchre.css">
+  <script type="text/javascript" src="prefixfree.min.js" ></script>
+  <script type="text/javascript" src="jquery-2.1.1.min.js" ></script>
+  <script type="text/javascript" src="euchre.js" ></script>
+</head>
+<body>
+<div id="new_round" class="popup-window">
+  <div class="new-round-container popup-container">
+    <div id="round_info"></div>
+    <div id="game_score"></div>
+    <button id="next_round">Deal Next Hand</button>
+  </div>
+</div>
+<div id="turn_start" class="popup-window">
+  <div class="cover-div popup-container">
+    <div id="content">
+      <h2 class="turn">___</h2>
+      <p id="last_card_played"></p>
+      <div id="show_cards_played"></div>
+      <div id="high_card"></div>
+      <button id="hide_turn_start">OK</button>
+    </div>
+    <div id="copyright">Copyright &copy; 2016 euchre-online.com</div>
+  </div>
+</div>
+<div class="dealer"><span style="line-height:80px;">Dealer</span></div>
+  <div id="perspective">
+    <div id="view" class="animate-all">
+      <div id="table">
+        <div class="trim"></div>
+        <div class="trim rotate90"></div>
+        <div class="trim rotate180"></div>
+        <div class="trim rotate270"></div>
+        <div class="trim-top"></div>
+        <div class="trim-top rotate90"></div>
+        <div class="trim-top rotate180"></div>
+        <div class="trim-top rotate270"></div>
+        <div id="center">
+          <div class="card-holder animate"></div>
+          <div class="hand" id="hand1"></div>
+          <div class="hand" id="hand2"></div>
+          <div class="hand" id="hand3"></div>
+          <div class="hand" id="hand4"></div>
+          <div class="hand" id="hand5"></div>
+        </div>
+        <div class="score" id="score1">
+          <div class="tricks" id="player_1_trick"></div>
+          <div class="upside-down">Team 1s Score</div>
+        </div>
+        <div class="score" id="score2">
+        <div class="tricks" id="player_2_trick"></div>
+          <div class="upside-down">Team 2s Score</div>
+        </div>
+        <div class="player" id="player_1">
+        </div>
+        <div class="player" id="player_2">
+        </div>
+        <div class="player" id="player_3">
+        </div>
+        <div class="player" id="player_4">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="controls">
+    <div id="trump_buttons">
+      <span class="turn">____</span><br/>
+      <button id="pass" class="trump-button control-button suit-button">Pass</button>
+      <button id="pickup" class="trump-button control-button">Pickup</button>
+      <button class="suit-button black control-button" data-suit="Clubs" data-color="0" id="selectClubs">&clubs;</button>
+      <button class="suit-button red control-button" data-suit="Diamonds" data-color="1" id="selectDiamonds">&diams;</button>
+      <button class="suit-button black control-button" data-suit="Spades" data-color="0" id="selectSpades">&spades;</button>
+      <button class="suit-button red control-button" data-suit="Hearts" data-color="1" id="selectHearts">&hearts;</button>
+      <div id="alone" class="control-button suit-button trump-button">
+        <input type="radio" name="alone" class="radio-tabs" id="go_alone" />
+        <label for="go_alone"><span>Go alone</span></label>
+        <input type="radio" name="alone" class="radio-tabs" id="team" checked="true" />
+        <label for="team"><span>Team</span></label>
+      </div>
+    </div>
+    <div id="game_info">
+      <span>Dealer: </span><span id="dealer"></span><br/>
+      <span id="trump"></span><br/>
+      <span id="played"></span>
+    </div>
+    <div id="tricks_won">
+      <div>Team 1s tricks:<span id="t1">0</span></div>
+      <div>Team 2s tricks:<span id="t2">0</span></div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    create_score_card(2, 4, '#score1');
+    create_score_card(2, 3, '#score2');
+  </script>
+</body>
+</html>
